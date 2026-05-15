@@ -1,0 +1,15 @@
+[daemon]
+# TCP port that ESC/POS clients connect to
+port = 9100
+# Interface to bind; 0.0.0.0 = all interfaces
+bind = 0.0.0.0
+
+[printer]
+# Device path. Use "auto" to try /dev/usb/lp0, /dev/ttyUSB0, /dev/ttyACM0 in order.
+# NOTE: status queries (paper sensor) require bidirectional I/O. If you're using
+# the USB printer class driver (/dev/usb/lp0), reading may not work reliably.
+# Put the TM-T88V in USB-Serial mode to get /dev/ttyUSB0 for full status support.
+device = auto
+
+# Serial baud rate — only used when device is a tty. TM-T88V default is 115200.
+baud_rate = 115200

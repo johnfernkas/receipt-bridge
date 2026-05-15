@@ -1,0 +1,22 @@
+[Unit]
+Description=Receipt Printer Bridge (Epson TM-T88V → TCP 9100)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/receipt-bridge/venv/bin/python -m receipt_bridge
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=receipt-bridge
+
+# Needs raw device access; run as root or add udev rules granting the
+# "lp" group access to /dev/usb/lp0 and "dialout" to /dev/ttyUSB0,
+# then set User/Group here instead.
+# User=receipt-bridge
+# Group=dialout
+
+[Install]
+WantedBy=multi-user.target
