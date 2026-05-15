@@ -5,6 +5,7 @@ Wants=network.target
 
 [Service]
 Type=simple
+WorkingDirectory=/opt/receipt-bridge
 ExecStart=/opt/receipt-bridge/venv/bin/python -m receipt_bridge
 Restart=on-failure
 RestartSec=5
